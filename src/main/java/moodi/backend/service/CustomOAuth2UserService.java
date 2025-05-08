@@ -1,6 +1,6 @@
 package moodi.backend.service;
 
-import moodi.backend.domain.User;
+import moodi.backend.domain.user.User;
 import moodi.backend.dto.CustomOAuth2User;
 import moodi.backend.dto.GoogleResponse;
 import moodi.backend.dto.OAuth2Response;
