@@ -1,6 +1,7 @@
 package moodi.backend.result.domain;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import moodi.backend.user.domain.User;
@@ -9,6 +10,7 @@ import moodi.backend.user.domain.User;
 @Table(name = "result")
 @Getter
 @Setter
+@Builder // 빌더 패턴 적용
 public class Result {
 
     @Id
