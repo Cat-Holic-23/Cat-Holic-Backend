@@ -1,11 +1,11 @@
-package moodi.backend.service;
+package moodi.backend.user.service;
 
-import moodi.backend.domain.user.User;
-import moodi.backend.dto.CustomOAuth2User;
-import moodi.backend.dto.GoogleResponse;
-import moodi.backend.dto.OAuth2Response;
-import moodi.backend.dto.UserDTO;
-import moodi.backend.repository.UserRepository;
+import moodi.backend.user.domain.User;
+import moodi.backend.user.dto.CustomOAuth2User;
+import moodi.backend.user.dto.GoogleResponse;
+import moodi.backend.user.dto.OAuth2Response;
+import moodi.backend.user.dto.UserDTO;
+import moodi.backend.user.repository.UserRepository;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
 import org.springframework.security.oauth2.core.OAuth2AuthenticationException;

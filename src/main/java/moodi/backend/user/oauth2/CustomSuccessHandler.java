@@ -1,11 +1,11 @@
-package moodi.backend.oauth2;
+package moodi.backend.user.oauth2;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import moodi.backend.dto.CustomOAuth2User;
-import moodi.backend.jwt.JWTUtil;
+import moodi.backend.user.dto.CustomOAuth2User;
+import moodi.backend.user.jwt.JWTUtil;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;

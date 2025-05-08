@@ -1,9 +1,9 @@
-package moodi.backend.domain.result;
+package moodi.backend.result.domain;
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import moodi.backend.domain.user.User;
+import moodi.backend.user.domain.User;
 
 @Entity
 @Table(name = "result")

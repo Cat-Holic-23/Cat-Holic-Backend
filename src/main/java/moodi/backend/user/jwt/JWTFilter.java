@@ -1,12 +1,12 @@
-package moodi.backend.jwt;
+package moodi.backend.user.jwt;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import moodi.backend.dto.CustomOAuth2User;
-import moodi.backend.dto.UserDTO;
+import moodi.backend.user.dto.CustomOAuth2User;
+import moodi.backend.user.dto.UserDTO;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;

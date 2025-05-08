@@ -1,4 +1,4 @@
-package moodi.backend.dto;
+package moodi.backend.user.dto;
 
 public interface OAuth2Response {
 

@@ -1,4 +1,4 @@
-package moodi.backend.controller;
+package moodi.backend.user.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

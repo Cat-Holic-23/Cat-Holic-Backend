@@ -1,4 +1,4 @@
-package moodi.backend.domain.user;
+package moodi.backend.user.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

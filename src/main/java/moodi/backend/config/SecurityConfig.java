@@ -1,10 +1,10 @@
 package moodi.backend.config;
 
 import jakarta.servlet.http.HttpServletRequest;
-import moodi.backend.jwt.JWTFilter;
-import moodi.backend.jwt.JWTUtil;
-import moodi.backend.oauth2.CustomSuccessHandler;
-import moodi.backend.service.CustomOAuth2UserService;
+import moodi.backend.user.jwt.JWTFilter;
+import moodi.backend.user.jwt.JWTUtil;
+import moodi.backend.user.oauth2.CustomSuccessHandler;
+import moodi.backend.user.service.CustomOAuth2UserService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;

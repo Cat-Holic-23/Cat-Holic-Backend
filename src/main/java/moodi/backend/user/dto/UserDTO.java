@@ -1,4 +1,4 @@
-package moodi.backend.dto;
+package moodi.backend.user.dto;
 
 import lombok.Getter;
 import lombok.Setter;
