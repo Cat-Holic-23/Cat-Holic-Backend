@@ -10,7 +10,6 @@ import moodi.backend.user.domain.User;
 @Table(name = "result")
 @Getter
 @Setter
-@Builder // 빌더 패턴 적용
 public class Result {
 
     @Id
@@ -29,7 +28,6 @@ public class Result {
     private String question;
 
     // 선택지
-    @Column(columnDefinition = "TEXT")
     private String choices;
 
     // 정답
@@ -38,4 +36,17 @@ public class Result {
     // 사용자 입력 답안
     @Column(name = "user_input")
     private String userInput;
+
+    public Result() {}
+
+    @Builder
+    public Result(Long id, User user, String story, String question, String choices, String answer, String userInput) {
+        this.id = id;
+        this.user = user;
+        this.story = story;
+        this.question = question;
+        this.choices = choices;
+        this.answer = answer;
+        this.userInput = userInput;
+    }
 }
