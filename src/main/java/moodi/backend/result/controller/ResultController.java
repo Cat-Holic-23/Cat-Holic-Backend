@@ -4,15 +4,13 @@ import lombok.RequiredArgsConstructor;
 import moodi.backend.result.domain.Result;
 import moodi.backend.result.dto.AddResultRequest;
 import moodi.backend.result.dto.ResultResponse;
+import moodi.backend.result.dto.UpdateResultRequest;
 import moodi.backend.result.service.ResultService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -42,5 +40,23 @@ public class ResultController {
 
         return ResponseEntity.ok()
                 .body(results);
+    }
+
+    @PutMapping("/results/{id}")
+    public ResponseEntity<Result> updateResult(@PathVariable Long id, @RequestBody UpdateResultRequest request) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
+        Result updatedResult = resultService.update(id, request, username);
+        return ResponseEntity.ok(updatedResult);
+    }
+
+    @DeleteMapping("/results/{id}")
+    public ResponseEntity<String> deleteResult(@PathVariable Long id) {
+        try {
+            resultService.deleteResult(id);
+            return ResponseEntity.ok("Result deleted successfully.");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Result not found.");
+        }
     }
 }
