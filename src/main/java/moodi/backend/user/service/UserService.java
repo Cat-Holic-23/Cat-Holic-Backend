@@ -56,4 +56,12 @@ public class UserService {
         // 수정된 유저 저장
         return userRepository.save(user);
     }
+
+    public void deleteUser(String username) {
+        // SecurityContextHolder에서 현재 로그인된 사용자 정보 가져오기
+        User user = userRepository.findByUsername(username);
+
+        // 사용자 삭제
+        userRepository.delete(user);
+    }
 }

@@ -10,10 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -42,6 +39,14 @@ public class UserController {
         } else {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).build();  // 권한이 없으면 수정 불가
         }
+    }
+
+    @DeleteMapping("/users")
+    public ResponseEntity<String> deleteUser(@AuthenticationPrincipal CustomUserDetails customUserDetails) {
+        String username = customUserDetails.getUsername();
+
+        userService.deleteUser(username);
+        return ResponseEntity.ok("User deleted successfully.");
     }
 
 }
