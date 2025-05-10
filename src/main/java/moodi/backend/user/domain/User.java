@@ -4,12 +4,13 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Getter
 @Setter
+@Getter
 public class User {
 
     @Id
@@ -17,10 +18,13 @@ public class User {
     private Long id;
 
     private String username;
-
-    private String name;
-
-    private String email;
+    private String password;
 
     private String role;
+
+    // 추가 필드
+    private String nickname;
+    private String gender;
+    private int age;
+    private String interest;
 }

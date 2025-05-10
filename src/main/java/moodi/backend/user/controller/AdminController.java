@@ -5,12 +5,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-public class MyController {
+@ResponseBody
+public class AdminController {
 
-    @GetMapping("/my")
-    @ResponseBody
-    public String myAPI() {
+    @GetMapping("/admin")
+    public String adminP() {
 
-        return "my route";
+        return "admin Controller";
     }
 }
