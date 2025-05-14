@@ -5,10 +5,7 @@ import moodi.backend.user.domain.User;
 import moodi.backend.user.dto.UpdateUserRequest;
 import moodi.backend.user.dto.UserResponse;
 import moodi.backend.user.repository.UserRepository;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -27,6 +24,7 @@ public class UserService {
                 .gender(user.getGender())
                 .age(user.getAge())
                 .interest(user.getInterest())
+                .point(user.getPoint())
                 .build();
     }
 
@@ -63,5 +61,15 @@ public class UserService {
 
         // 사용자 삭제
         userRepository.delete(user);
+    }
+
+    public void addPointsToUser(String username, int points) {
+        User user = userRepository.findByUsername(username);
+        if (user != null) {
+            user.setPoint(user.getPoint() + points);
+            userRepository.save(user);
+        } else {
+            throw new RuntimeException("User not found with username: " + username);
+        }
     }
 }

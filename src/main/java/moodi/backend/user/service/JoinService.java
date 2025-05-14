@@ -26,6 +26,7 @@ public class JoinService {
         String gender = joinDTO.getGender();
         int age = joinDTO.getAge();
         String interest = joinDTO.getInterest();
+        int point = joinDTO.getPoint();
 
         User data = new User();
 
@@ -36,7 +37,8 @@ public class JoinService {
         data.setGender(gender);
         data.setAge(age);
         data.setInterest(interest);
-        
+        data.setPoint(point);
+
         userRepository.save(data);
     }
 }

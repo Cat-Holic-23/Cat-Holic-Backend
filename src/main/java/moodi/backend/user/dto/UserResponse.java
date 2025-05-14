@@ -11,4 +11,5 @@ public class UserResponse {
     private String gender;
     private int age;
     private String interest;
+    private int point;
 }

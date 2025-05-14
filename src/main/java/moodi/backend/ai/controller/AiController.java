@@ -3,7 +3,6 @@ package moodi.backend.ai.controller;
 import lombok.RequiredArgsConstructor;
 import moodi.backend.ai.dto.SocialSituationRequest;
 import moodi.backend.ai.service.AiService;
-import moodi.backend.result.service.ResultService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;

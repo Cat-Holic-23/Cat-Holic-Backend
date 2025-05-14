@@ -8,7 +8,6 @@ import moodi.backend.user.dto.UserResponse;
 import moodi.backend.user.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
@@ -49,4 +48,16 @@ public class UserController {
         return ResponseEntity.ok("User deleted successfully.");
     }
 
+    // POST 요청 처리
+    @PostMapping("/point")
+    public String addPoints(@AuthenticationPrincipal CustomUserDetails customUserDetails) {
+        String username = customUserDetails.getUsername();
+        try {
+            // 사용자에게 30점을 추가
+            userService.addPointsToUser(username, 30);
+            return "Points added successfully!";
+        } catch (Exception e) {
+            return "Error: " + e.getMessage();
+        }
+    }
 }
