@@ -22,7 +22,7 @@ public class AiController {
         return ResponseEntity.ok(aiResponse);
     }
 
-    @GetMapping("/gemini/generate")
+    @PostMapping("/generate")
     public ResponseEntity<String> sendRecentResultsToAi(@RequestBody SocialSituationRequest request) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String username = auth.getName();
