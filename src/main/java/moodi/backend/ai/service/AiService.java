@@ -66,6 +66,23 @@ public class AiService {
     )
     public String sendRecentResultsToAi(String username, SocialSituationRequest socialSituationInput) {
         List<Result> results = resultRepository.findTop10ByUserUsernameOrderByIdDesc(username);
+
+        // 결과가 비어있으면 바로 story_gen에 빈 문자열을 보내도록 설정
+        if (results.isEmpty()) {
+            User user = userRepository.findByUsername(username);
+
+            LearningHistorySummaryRequest finalRequest = new LearningHistorySummaryRequest();
+            finalRequest.setAge(user.getAge());
+            finalRequest.setSocialSituation(String.valueOf(socialSituationInput));
+            finalRequest.setLearningHistorySummary(""); // 빈 문자열을 보내기
+
+            String finalAiUrl = "http://218.156.44.3:2323/gemini/story_gen";
+            ResponseEntity<String> finalResponse = postWithRetry(finalAiUrl, finalRequest);
+
+            return finalResponse.getBody();
+        }
+
+        // 결과가 비어있지 않으면 정상적인 처리를 진행
         List<SummaryResponse> items = results.stream()
                 .map(r -> new SummaryResponse(
                         r.getStory(),
@@ -78,6 +95,7 @@ public class AiService {
         SummaryRequest request = new SummaryRequest(items);
         String aiUrl = "http://218.156.44.3:2323/local/summation";
 
+        // AI 서버에 요청 보내기
         ResponseEntity<String> response = postWithRetry(aiUrl, request);
         String historySummary = response.getBody();
 
